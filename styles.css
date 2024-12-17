@@ -1,0 +1,564 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Fraunces:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  overflow-x: hidden; /* Evita desplaçaments horitzontals */
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Fraunces', serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: transparent;
+}
+
+.logo a {
+  font-weight: bold;
+  font-size: 1.8em;
+  text-decoration: none;
+  color: #fff;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1.5em;
+  list-style: none;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Posicionament del menú i botó hamburguesa en pantalles petites */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    /* Col·loca el botó hamburguesa alineat a la dreta */
+    margin-left: auto;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 1em;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    z-index: 1000;
+  }
+
+  .nav-menu a {
+    color: black;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+}
+
+.img-header {
+  width: 100%;
+  height: 60vh; /* Alçada completa de la pantalla */
+  background-image: url('images/mobile/image-header.jpg');
+  background-size: cover; /* Assegura que la imatge cobreixi tot el contenidor */
+  background-position: center;
+  position: relative;
+}
+
+.text-header {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-transform: uppercase;
+  font-size: 2.5em;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.img-egg img {
+  width: 100%;
+  height: 100%;
+}
+
+.transform {
+  text-align: center;
+  padding: 2em;
+}
+
+.transform h2 {
+  margin-bottom: 1em;
+  font-size: 2.4em;
+}
+
+.transform p {
+  font-weight: 600;
+  font-size: 1.2em;
+  line-height: 1.6em;
+  color: hsl(232, 10%, 55%);
+  margin-bottom: 1.5em;
+}
+
+.transform button {
+  font-family: 'Fraunces', serif;
+  font-weight: bolder;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  color: #2b2b2b;
+  position: relative;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+/* Pseudo-element pel subratllat groc */
+.transform button::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 0.3em;
+  background-color: #f3ce76;
+  position: absolute;
+  bottom: 1;
+  left: 0;
+  transform: scaleX(1);
+  transition: transform 0.3s ease;
+}
+
+.transform button:hover::after {
+  transform: scaleX(1.1);
+}
+
+.img-stand-out img {
+  width: 100%;
+  height: 100%;
+}
+
+.stand-out {
+  text-align: center;
+  padding: 2em;
+}
+
+.stand-out h2 {
+  margin-bottom: 1em;
+  font-size: 2.4em;
+}
+
+.stand-out p {
+  font-weight: 600;
+  font-size: 1.2em;
+  line-height: 1.6em;
+  color: hsl(232, 10%, 55%);
+  margin-bottom: 1.5em;
+}
+
+.stand-out button {
+  font-family: 'Fraunces', serif;
+  font-weight: bolder;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  color: #2b2b2b;
+  position: relative;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+/* Pseudo-element pel subratllat groc */
+.stand-out button::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 0.3em;
+  background-color: #f3ce76;
+  position: absolute;
+  bottom: 1;
+  left: 0;
+  transform: scaleX(1);
+  transition: transform 0.3s ease;
+}
+
+.stand-out button:hover::after {
+  transform: scaleX(1.1);
+}
+
+.graphic-design,
+.photography {
+  position: relative; /* Permet posicionar elements fills amb 'absolute' */
+  text-align: center;
+  font-family: 'Barlow', sans-serif;
+  color: #23303e;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+.graphic-design img,
+.photography img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Títol i text sobre la imatge */
+.graphic-design h2,
+.graphic-design p,
+.photography h2,
+.photography p {
+  position: absolute; /* Per moure els elements sobre la imatge */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Títol */
+.graphic-design h2,
+.photography h2 {
+  position: absolute;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 2em;
+  top: 70%;
+  margin: 0;
+}
+
+/* Paràgraf */
+.graphic-design p,
+.photography p {
+  position: absolute;
+  font-size: 1.1em;
+  top: 80%;
+}
+
+/* Contenidor principal */
+.testimonials-wrapper {
+  text-align: center;
+  font-family: 'Barlow', sans-serif;
+  padding: 2em;
+  background-color: #fefcf7;
+}
+
+/* Títol */
+.testimonials-wrapper h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #a7a6a2;
+  margin-bottom: 2em;
+}
+
+/* Contenidors dels testimonis */
+.testimonials .first,
+.testimonials .second,
+.testimonials .third {
+  margin-bottom: 2.5em;
+}
+
+/* Imatges dels testimonis */
+.testimonials img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 1em;
+}
+
+/* Text principal dels testimonis */
+.testimonials p {
+  font-size: 1em;
+  line-height: 1.6;
+  color: #5a5a5a;
+  margin: 0 1em 1em;
+}
+
+/* Nom dels clients */
+.testimonials .name {
+  font-family: 'Fraunces', serif;
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 1em;
+  color: #23303e;
+}
+
+/* Càrrec dels clients */
+.testimonials .charge {
+  font-size: 0.9em;
+  color: #a7a6a2;
+}
+
+.grid-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-images img {
+  width: 100%;
+}
+
+/* footer */
+.footer {
+  background-color: #90d4c5;
+  text-align: center;
+  padding: 2em 1em;
+  font-family: 'Barlow', sans-serif;
+}
+
+/* Logo */
+.footer .logo {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #2d4d40;
+  margin-bottom: 1em;
+}
+
+/* Navegació */
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin-bottom: 2em;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  font-size: 1em;
+  color: #2d4d40;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: #fff;
+}
+
+/* Icones socials */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  margin-top: 8em;
+}
+
+.social-icons a img {
+  width: 24px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+/* Media query per pantalles grans */
+@media (min-width: 768px) {
+  button.hamburger {
+    display: none;
+  }
+
+  /* Hero Section */
+  .img-header {
+    height: 100vh;
+    background-image: url('images/desktop/image-header.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+
+  .text-header {
+    font-size: 3.5em;
+    text-align: center;
+    padding: 0;
+  }
+
+  /* Seccions amb dues columnes */
+  .section {
+    display: flex;
+    align-items: center;
+  }
+
+  .img-egg,
+  .img-stand-out {
+    width: 50%;
+  }
+
+  .transform,
+  .stand-out {
+    width: 50%;
+    padding: 4em;
+    text-align: left;
+  }
+
+  /* Imatges alternades */
+  .section:nth-child(even) .img-stand-out {
+    order: 2; /* Canvia l’ordre de la imatge en seccions parells */
+  }
+
+  /* Graphic Design i Photography */
+  .section2 {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .graphic-design,
+  .photography {
+    flex: 1;
+    text-align: center;
+  }
+
+  .graphic-design h2,
+  .photography h2 {
+    font-size: 2em;
+  }
+
+  .graphic-design p,
+  .photography p {
+    font-size: 1.2em;
+  }
+
+  .graphic-design img,
+  .photography img {
+    width: 100%;
+    height: 1000px;
+    object-fit: cover;
+    object-position: top; /* Manté visible la part superior i retalla per sota */
+  }
+
+  /* Testimonis en tres columnes */
+  .testimonials-wrapper {
+    text-align: center;
+    background-color: #fefcf7;
+    padding: 2em 1em;
+  }
+
+  .testimonials-wrapper h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #a7a6a2;
+  }
+
+  .testimonials {
+    display: flex;
+    justify-content: space-around;
+    padding: 4em 2em;
+    background-color: #fefcf7;
+  }
+
+  .testimonials .first,
+  .testimonials .second,
+  .testimonials .third {
+    text-align: center;
+    max-width: 300px;
+    margin: 0 1em;
+  }
+
+  /* Galeria d'imatges */
+  .grid-images {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnes */
+  }
+
+  .grid-images img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Footer */
+  .footer {
+    background-color: #90d4c5;
+    text-align: center;
+    padding: 3em 1em;
+  }
+
+  .footer .logo {
+    margin-bottom: 1em;
+    font-size: 2em;
+    font-family: 'Fraunces', serif;
+    color: #2d4d40;
+  }
+
+  .footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+    margin-bottom: 2em;
+  }
+
+  .footer-nav a {
+    text-decoration: none;
+    color: #2d4d40;
+    transition: color 0.3s ease;
+  }
+
+  .footer-nav a:hover {
+    color: #fff;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    margin-top: 2em;
+  }
+
+  .social-icons img {
+    width: 24px;
+    transition: transform 0.3s ease;
+  }
+
+  .social-icons a:hover img {
+    transform: scale(1.2);
+  }
+}
